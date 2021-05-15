@@ -1,0 +1,18 @@
+@variants responsive {
+    .max-w-screen{
+        max-width: 100vw;
+    }
+    .w-full-56{
+        width: calc(100% - 14rem);
+    }
+    .w-full-72{
+        width: calc(100% - 18rem);
+    }
+    .h-screen-with-header{
+        height: calc(100vh - 80px);
+    }
+    .\-rotate-135{
+        --tw-rotate: -135deg;
+    }
+}
+

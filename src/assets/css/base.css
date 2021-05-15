@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'DinNextltArabic';
+    font-weight: 400;
+    src: url(/fonts/DinNextltArabic/DINNextLTArabic-Regular.woff) format("woff");
+}
+
+@font-face {
+    font-family: 'DinNextltArabic';
+    font-weight: 500;
+    src: url(/fonts/DinNextltArabic/DINNextLTArabic-Medium.woff) format("woff");
+}
+html, body{
+    font-family: 'DinNextltArabic', system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont, Arial;
+    scroll-behavior: smooth;
+}
+
+[dir='rtl'] select {
+    background-position: left 0.5rem center;
+    padding-left: 2.5rem;
+    padding-right: .75rem;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=email], textarea, input, select{
+    @apply border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-0 ;
+}
+input[type=checkbox], input[type=radio] {
+    @apply border-gray-300 rounded shadow-sm text-primary-600 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50;
+}
+input[type=radio] {
+    @apply rounded-full;
+}
+img{
+    @apply object-center h-auto max-w-full;
+}
+
+/**
+* Tooltip Styles
+*/
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+[data-tooltip="false"]:before,
+[data-tooltip="false"]:after,
+[data-tooltip="false"]:hover:before,
+[data-tooltip="false"]:hover:after
+{
+    display: none !important;
+}
+[dir="rtl"] .rtl-rotate-180
+{
+    transform: rotate(180deg);
+}
