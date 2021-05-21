@@ -16,7 +16,7 @@
 					</div>
 					<div class="hidden sm:block sm:ms-6">
 						<div class="flex space-s-4">
-						<a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+							<a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
@@ -77,7 +77,7 @@
 	</Disclosure>
 </template>
 
-<script >
+<script setup>
 import { ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon, GlobeIcon } from '@heroicons/vue/outline'
@@ -90,36 +90,11 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ]
 
-export default {
-  components: {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    BellIcon,
-    MenuIcon,
-    XIcon,
-	GlobeIcon
-  },
-  setup() {
-	const lang = useI18n()
-    const open = ref(false)
-	const locales = supportedLocales
-	
-	const changeLocale = (locale) => {
-		changeLocaleTo(locale, lang)
-	}
+const lang = useI18n()
+const open = ref(false)
+const locales = supportedLocales
 
-    return {
-      navigation,
-      open,
-	  lang,
-	  supportedLocales,
-	  changeLocale
-    }
-  },
+const changeLocale = (locale) => {
+	changeLocaleTo(locale, lang)
 }
 </script>
